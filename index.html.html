@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌸 Happy Teacher’s Day! 🌸</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+:root {
+  --c1: #e14c69;
+  --c2: #a23e8d;
+  --c3: #f06d7f;
+  --c4: #632f4f;
+  --font: 'Poppins', Arial, sans-serif;
+}
+html, body {
+  margin: 0; padding: 0;
+  height: 100%; width: 100%;
+  font-family: var(--font);
+  background: linear-gradient(120deg, var(--c1), var(--c2), var(--c3));
+  overflow-x: hidden;
+  color: #fff;
+}
+.start-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--c2), var(--c3));
+  z-index: 10;
+}
+.surprise-btn {
+  font-size: 1.6rem;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 1.5em;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 20px #00000040;
+  transition: transform 0.2s;
+}
+.surprise-btn:hover {
+  transform: scale(1.05);
+}
+.main-content {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.glow-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px #fff;
+}
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+.carousel-card {
+  flex: 0 0 80%;
+  max-width: 80%;
+  margin: 0 10px;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  border-radius: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transform: scale(0.85);
+  transition: transform 0.5s, opacity 0.5s;
+  box-shadow: 0 4px 20px #00000050;
+}
+.carousel-card.active {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px #00000080;
+}
+/* Mobile */
+@media (max-width: 600px) {
+  .carousel-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="start-screen" id="startScreen">
+    <button class="surprise-btn" id="surpriseBtn">🎁 Click for a Surprise</button>
+  </div>
+
+  <main class="main-content" id="mainContent">
+    <h1 class="glow-heading">🌸 Happy Teacher’s Day to Kapil Sir & Suruchi Ma’am! 🌸</h1>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+  </main>
+
+<script>
+const startScreen = document.getElementById("startScreen");
+const mainContent = document.getElementById("mainContent");
+const surpriseBtn = document.getElementById("surpriseBtn");
+const carouselTrack = document.getElementById("carouselTrack");
+
+const messages = [
+  "Teachers don’t just teach subjects, they teach life. 🌟",
+  "Kapil Sir – your guidance inspires us every day!",
+  "Suruchi Ma’am – your kindness makes learning beautiful!",
+  "Classrooms would be dull without teachers like you. 💖",
+  "You are guides, mentors, and true inspirations. 🙏",
+  "Happy Teacher’s Day! Thank you for everything. 🌸"
+];
+
+// Build cards
+messages.forEach(msg=>{
+  const card = document.createElement("div");
+  card.className="carousel-card";
+  card.textContent=msg;
+  carouselTrack.appendChild(card);
+});
+let cards = document.querySelectorAll(".carousel-card");
+
+let index=0;
+function updateCarousel(){
+  cards.forEach((c,i)=>{
+    c.classList.remove("active");
+  });
+  cards[index].classList.add("active");
+  const cardWidth = cards[0].offsetWidth + 20;
+  const offset = -(index*cardWidth) + (carouselTrack.parentElement.offsetWidth/2 - cardWidth/2);
+  carouselTrack.style.transform = `translateX(${offset}px)`;
+  index = (index+1) % cards.length;
+}
+surpriseBtn.addEventListener("click", ()=>{
+  startScreen.style.display="none";
+  mainContent.style.display="flex";
+  updateCarousel();
+  setInterval(updateCarousel, 2500);
+});
+</script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌸 Happy Teacher’s Day! 🌸</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+:root {
+  --c1: #e14c69;
+  --c2: #a23e8d;
+  --c3: #f06d7f;
+  --c4: #632f4f;
+  --font: 'Poppins', Arial, sans-serif;
+}
+html, body {
+  margin: 0; padding: 0;
+  height: 100%; width: 100%;
+  font-family: var(--font);
+  background: linear-gradient(120deg, var(--c1), var(--c2), var(--c3));
+  overflow-x: hidden;
+  color: #fff;
+}
+.start-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--c2), var(--c3));
+  z-index: 10;
+}
+.surprise-btn {
+  font-size: 1.6rem;
+  padding: 1em 2em;
+  border: none;
+  border-radius: 1.5em;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 20px #00000040;
+  transition: transform 0.2s;
+}
+.surprise-btn:hover {
+  transform: scale(1.05);
+}
+.main-content {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+.glow-heading {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px #fff;
+}
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  overflow: hidden;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.6s ease;
+}
+.carousel-card {
+  flex: 0 0 80%;
+  max-width: 80%;
+  margin: 0 10px;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, var(--c1), var(--c2));
+  border-radius: 1.5rem;
+  text-align: center;
+  font-size: 1.2rem;
+  opacity: 0.5;
+  transform: scale(0.85);
+  transition: transform 0.5s, opacity 0.5s;
+  box-shadow: 0 4px 20px #00000050;
+}
+.carousel-card.active {
+  opacity: 1;
+  transform: scale(1.1);
+  box-shadow: 0 6px 30px #00000080;
+}
+/* Mobile */
+@media (max-width: 600px) {
+  .carousel-card {
+    flex: 0 0 100%;
+    max-width: 100%;
+    font-size: 1rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="start-screen" id="startScreen">
+    <button class="surprise-btn" id="surpriseBtn">🎁 Click for a Surprise</button>
+  </div>
+
+  <main class="main-content" id="mainContent">
+    <h1 class="glow-heading">🌸 Happy Teacher’s Day to Kapil Sir & Suruchi Ma’am! 🌸</h1>
+    <div class="carousel-container">
+      <div class="carousel-track" id="carouselTrack"></div>
+    </div>
+  </main>
+
+<script>
+const startScreen = document.getElementById("startScreen");
+const mainContent = document.getElementById("mainContent");
+const surpriseBtn = document.getElementById("surpriseBtn");
+const carouselTrack = document.getElementById("carouselTrack");
+
+const messages = [
+  "Teachers don’t just teach subjects, they teach life. 🌟",
+  "Kapil Sir – your guidance inspires us every day!",
+  "Suruchi Ma’am – your kindness makes learning beautiful!",
+  "Classrooms would be dull without teachers like you. 💖",
+  "You are guides, mentors, and true inspirations. 🙏",
+  "Happy Teacher’s Day! Thank you for everything. 🌸"
+];
+
+// Build cards
+messages.forEach(msg=>{
+  const card = document.createElement("div");
+  card.className="carousel-card";
+  card.textContent=msg;
+  carouselTrack.appendChild(card);
+});
+let cards = document.querySelectorAll(".carousel-card");
+
+let index=0;
+function updateCarousel(){
+  cards.forEach((c,i)=>{
+    c.classList.remove("active");
+  });
+  cards[index].classList.add("active");
+  const cardWidth = cards[0].offsetWidth + 20;
+  const offset = -(index*cardWidth) + (carouselTrack.parentElement.offsetWidth/2 - cardWidth/2);
+  carouselTrack.style.transform = `translateX(${offset}px)`;
+  index = (index+1) % cards.length;
+}
+surpriseBtn.addEventListener("click", ()=>{
+  startScreen.style.display="none";
+  mainContent.style.display="flex";
+  updateCarousel();
+  setInterval(updateCarousel, 2500);
+});
+</script>
+</body>
+</html>
